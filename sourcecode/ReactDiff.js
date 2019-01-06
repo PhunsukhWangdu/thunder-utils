@@ -47,6 +47,7 @@ const _updateChildren =  function(nextNestedChildrenElements, transaction, conte
     }
     nextIndex++;
   }
+  //当完成新集合中所有节点 diff 时，最后还需要对老集合进行循环遍历，判断是否存在新集合中没有但老集合中仍存在的节点，发现存在这样的节点则进行删除，到此 diff 全部完成。
   for (name in prevChildren) {
     if (prevChildren.hasOwnProperty(name) &&
         !(nextChildren && nextChildren.hasOwnProperty(name))) {
